@@ -11,8 +11,18 @@ export default class BaseComponent extends Component {
         super(props);
     }
 
-    fullName() {
-        return 'test'
+    navigatorPush(component) {
+        const {navigator} = this.props;
+        if (navigator) {
+            navigator.push({component: component});
+        }
+    }
+
+    navigatorPop() {
+        const {navigator} = this.props;
+        if (navigator) {
+            navigator.pop();
+        }
     }
 }
 AppRegistry.registerComponent('BaseComponent', () => BaseComponent);
